@@ -1,18 +1,28 @@
 import { SiteShell } from '@/components/site-shell';
 
-const leadershipTeam = [
+const topLeadership = [
   {
     name: 'Hon. Kibwana',
-    title: 'Founder',
+    title: 'Pioneer and President',
     role: 'Founder and visionary patron of the Coastal Youth Parliament, shaping the movement around youth inclusion, public participation, and economic transformation.',
     image: 'https://raw.githubusercontent.com/maina098/coastalYouthParliament/main/Hon.Kibwana.jpeg.jpeg',
   },
   {
-    name: 'Super Sg',
+    name: 'Hon. Nassib Juma',
     title: 'Prime Cabinet Secretary',
     role: 'Executive founding committee member supporting Hon. Kibwana in coordinating key cabinet functions and strategic leadership across the movement.',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://raw.githubusercontent.com/maina098/coastalYouthParliament/main/WhatsApp%20Image%202026-08-14%20at%2011.56.41%20AM.jpeg',
+    imagePos: 'center 5%',
   },
+  {
+    name: 'Hon. Ali Kubo',
+    title: 'Speaker of the House',
+    role: 'A principled and visionary leader entrusted with maintaining the dignity and order of parliamentary proceedings. Hon. Ali Kubo brings a wealth of experience in youth advocacy, governance, and legislative oversight, ensuring every voice in the coastal youth assembly is heard and represented with fairness and integrity.',
+    image: 'https://scontent.fnbo19-1.fna.fbcdn.net/v/t39.30808-6/651008717_26756158403990576_5081908159047801026_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1920&ctp=s590x590&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeECitwe0yXozk4lHW-pZuVvokYZOj-z7ZKiRhk6P7Ptkp60CIeqdIvfWmI1rMH38xW-v8ECCBOPedsvlipdNOXe&_nc_ohc=qeN4cDtJGbAQ7kNvwHNd_s4&_nc_oc=Adrz1zg0WX2pJCW9ZPC3Jw3vMjEb7kn9VRTyTyqqX49tDi7sI06Xu4z4UNk56HIBhsk&_nc_zt=23&_nc_ht=scontent.fnbo19-1.fna&_nc_gid=DaF-8Pd9WzeIikNFGaGJ-Q&_nc_ss=7b2a8&oh=00_AQG0zZyOfVABZqVGA304eta2Kqq5Quvav2w4Rz2O-MKh2Q&oe=6A86424C',
+  },
+];
+
+const leadershipTeam = [
   {
     name: 'Hon. Dulla',
     title: 'Secretary General',
@@ -20,16 +30,18 @@ const leadershipTeam = [
     image: 'https://raw.githubusercontent.com/maina098/coastalYouthParliament/main/WhatsApp%20Image%202026-08-14%20at%202.19.38%20AM.jpeg',
   },
   {
-    name: 'Hon. ODM Cord',
+    name: 'Hon. EMMANUEL MAINGI',
     title: 'Cabinet Secretary for Economic and National Planning',
     role: 'Leads planning, policy direction, and economic development strategies that strengthen youth participation in national and regional growth.',
-    image: 'https://raw.githubusercontent.com/maina098/coastalYouthParliament/main/WhatsApp%20Image%202026-08-14%20at%202.19.38%20AM%20(2).jpeg',
+    image: 'https://raw.githubusercontent.com/maina098/coastalYouthParliament/main/WhatsApp%20Image%202026-08-14%20at%2012.12.22%20PM.jpeg',
+    imagePos: 'center 5%',
   },
   {
     name: 'Hon. Anderson Maina',
     title: 'Cabinet Secretary for ICT',
     role: 'Drives digital transformation, innovation, and technology-driven engagement to strengthen connectivity, communication, and service delivery.',
-    image: 'https://scontent.fnbo19-1.fna.fbcdn.net/v/t39.30808-6/711425891_1503813908143381_8960860859503958946_n.jpg?stp=dst-jpg_tt6&cstp=mx972x1296&ctp=s972x1296&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeENSZPuqqVAFth2kFDqOaW4-vAHYX-k68v68Adhf6Try5hBFx4Nopq0N-o4XFPLen4zmsOvLVmE_o_-ibXHWRy6&_nc_ohc=3aYB2KKZCk0Q7kNvwGQGX6a&_nc_oc=AdrMQKhHUehASm_O3WVLjSy9slZqd6Iqp3i1xqevxm7ykHil7txL1GDUsbstb50jAIs&_nc_zt=23&_nc_ht=scontent.fnbo19-1.fna&_nc_gid=2Wb0quAnfBZG8KA6VY26hw&_nc_ss=7b2a8&oh=00_AQFSZaUBhj3OPG_3xfPa-h1u26wNRoe016xsqSFM5Rw54A&oe=6A851B45',
+    image: 'https://raw.githubusercontent.com/maina098/coastalYouthParliament/main/WhatsApp%20Image%202026-08-14%20at%2012.31.16%20PM.jpeg',
+    imagePos: 'center 5%',
   },
 ];
 
@@ -86,9 +98,19 @@ export default function AboutPage() {
         </div>
 
         <div className="leadership-grid">
+          {topLeadership.map((leader) => (
+            <article className="leader-card" key={leader.name}>
+              <img src={leader.image} alt={leader.name} className="leader-image" style={leader.imagePos ? { objectPosition: leader.imagePos } : undefined} />
+              <div className="leader-body">
+                <h3>{leader.name}</h3>
+                <p className="leader-title">{leader.title}</p>
+                <p>{leader.role}</p>
+              </div>
+            </article>
+          ))}
           {leadershipTeam.map((leader) => (
             <article className="leader-card" key={leader.name}>
-              <img src={leader.image} alt={leader.name} className="leader-image" />
+              <img src={leader.image} alt={leader.name} className="leader-image" style={leader.imagePos ? { objectPosition: leader.imagePos } : undefined} />
               <div className="leader-body">
                 <h3>{leader.name}</h3>
                 <p className="leader-title">{leader.title}</p>

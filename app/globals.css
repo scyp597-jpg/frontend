@@ -470,16 +470,17 @@ a {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Top row: Founder and Super SG take half-width each */
+/* Top row: First three leaders (Kibwana, Nassib Juma, Ali Kubo) split evenly */
 .leader-card:nth-child(1),
-.leader-card:nth-child(2) {
-  grid-column: span 3;
+.leader-card:nth-child(2),
+.leader-card:nth-child(3) {
+  grid-column: span 2;
 }
 
 /* Bottom row: Other three leaders split evenly */
-.leader-card:nth-child(3),
 .leader-card:nth-child(4),
-.leader-card:nth-child(5) {
+.leader-card:nth-child(5),
+.leader-card:nth-child(6) {
   grid-column: span 2;
 }
 
